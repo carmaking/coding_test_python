@@ -1,6 +1,10 @@
+from collections import deque
+import sys
+input = sys.stdin.readline
+
 def bfs():
     global result
-    queue = []
+    queue = deque()
     for i in range(N):
         for j in range(M):
             if graph[i][j] == 1:
@@ -9,7 +13,7 @@ def bfs():
     while queue:
         result += 1
         for _ in range(len(queue)):
-          x, y = queue.pop(0)
+          x, y = queue.popleft()
           for i in range(4):
               nx = x + dx[i]
               ny = y + dy[i]
